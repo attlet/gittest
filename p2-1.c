@@ -19,8 +19,8 @@ int main()
 
 float sum(float list[], int n)  //배열들의 원소들의 총합을 구한다.
 {
-    printf("value of list = %p\n", list);
-    printf("address of list = %p\n\n", &list);  //둘 다 같은 주소값 출력.
+    printf("value of list = %p\n", list); //매개변수로 input의 주소를 받은 것을 확인
+    printf("address of list = %p\n\n", &list);  //다른 값 출력. 포인터 변수이기에 다른 주소를 갖고 있다.
 
     int i;
     float tempsum = 0;
