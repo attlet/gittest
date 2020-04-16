@@ -27,7 +27,7 @@ int main() {
     matrix_T = create_matrix(col, row);    //m*n행렬과 n*m행렬의 곱셈결과는 m*m행렬이 된다.
        
 
-    if (matrixA == NULL || matrixB == NULL) { //동적할당이 잘 됐는 지 확인
+    if (matrixA == NULL || matrixB == NULL || matrix_Sum == NULL || matrix_Sub == NULL || matrix_Axt == NULL || matrix_T == NULL) { //동적할당이 잘 됐는 지 확인
         printf("유효하지 않은 값입니다. 프로그램을 종료합니다.");
         return 0;
     }
@@ -60,6 +60,8 @@ int main() {
     free_matrix(matrix_Sub,row,col);
     free_matrix(matrix_T,col,row);
     free_matrix(matrix_Axt,row,row); //동적할당된 메모리 해제
+    
+    return 0;
 }
 void checkp(int a) {
     if (a == -1) {
