@@ -58,7 +58,7 @@ int main()
 	char command;
 	int key;
 	Node* head = NULL;
-
+    printf("==========ÀÌ¸§:½ÅÀ±¼º ÇĞ¹ø:2017038015==========\n");
 	do{
 		printf("\n\n");
 		printf("----------------------------------------------------------------\n");
@@ -145,13 +145,13 @@ void recursiveInorder(Node* ptr)
 /**
  * textbook: p 224
  */
-void iterativeInorder(Node* node) //non- recursiveí•˜ê²Œ inorderìˆœíšŒë¥¼ í•˜ëŠ” í•¨ìˆ˜.
+void iterativeInorder(Node* node) //non- recursive?•˜ê²? inorder?ˆœ?šŒë¥? ?•˜?Š” ?•¨?ˆ˜.
 {
 	int top = -1;
 	for( ;; ){
-		for(; node ; node = node -> left) //nodeë¥¼ ì™¼ìª½ìœ¼ë¡œ ê³„ì† ì´ë™í•˜ë©° push
+		for(; node ; node = node -> left) //nodeë¥? ?™¼ìª½ìœ¼ë¡? ê³„ì† ?´?™?•˜ë©? push
 		    push(node);
-        node = pop();         //pushí›„ì— popí•˜ë©° ì˜¤ë¥¸ìª½ ì²´í¬. 
+        node = pop();         //push?›„?— pop?•˜ë©? ?˜¤ë¥¸ìª½ ì²´í¬. 
 		if(!node) break;
 		printf(" [%d] ", node->key);
 		node = node->right;
@@ -165,15 +165,15 @@ void levelOrder(Node* ptr)
 {
 	front = rear = -1;  
 	if(!ptr) return;
-	enQueue(ptr);     //ë£¨íŠ¸ì˜ ë…¸ë“œ íì— ì‚½ì…
+	enQueue(ptr);     //ë£¨íŠ¸?˜ ?…¸?“œ ??— ?‚½?…
 	for( ; ; ){
-		ptr = deQueue(); //íì—ì„œ í•˜ë‚˜ ë¹¼ëƒ„
+		ptr = deQueue(); //??—?„œ ?•˜?‚˜ ë¹¼ëƒ„
 		if(ptr){
 			printf(" [%d] ", ptr->key);
 			if(ptr->left)
 			    enQueue(ptr->left);  
 			if(ptr->right)
-			    enQueue(ptr->right);  //ì™¼ìª½ ì˜¤ë¥¸ìª½ ë…¸ë“œê°’ íì— ì‚½ì…
+			    enQueue(ptr->right);  //?™¼ìª? ?˜¤ë¥¸ìª½ ?…¸?“œê°? ??— ?‚½?…
 		}
 		else break;
 	}
@@ -227,33 +227,33 @@ int insert(Node* head, int key)
 int deleteNode(Node* head, int key)
 {
 	if(head->left == NULL){
-		printf("there is no node\n");   //íŠ¸ë¦¬ê°€ ë¹„ì—ˆëŠ” ì§€ ì²´í¬
+		printf("there is no node\n");   //?Š¸ë¦¬ê?? ë¹„ì—ˆ?Š” ì§? ì²´í¬
 		return 0;
 	}
-	Node* ptr = head->left;   //ì§€ìš°ê³ ì í•˜ëŠ” ë…¸ë“œ
-    Node* parent = NULL;      //ì§€ìš¸ ë…¸ë“œì˜ ë¶€ëª¨ë…¸ë“œ
+	Node* ptr = head->left;   //ì§??š°ê³ ì ?•˜?Š” ?…¸?“œ
+    Node* parent = NULL;      //ì§??š¸ ?…¸?“œ?˜ ë¶?ëª¨ë…¸?“œ
 	Node* child = NULL;       
 	
 	while(ptr != NULL && ptr->key != key){
 		parent = ptr;
-		ptr = (key <parent->key )? parent->left : parent->right;  //ì§€ìš¸ ë…¸ë“œì˜ í¬ì¸í„°ì™€ ë¶€ëª¨ ë…¸ë“œ í¬ì¸í„°
+		ptr = (key <parent->key )? parent->left : parent->right;  //ì§??š¸ ?…¸?“œ?˜ ?¬?¸?„°??? ë¶?ëª? ?…¸?“œ ?¬?¸?„°
 	}
 	if(!ptr){
 		printf("can't find the key\n");
-		return 0;                      //í‚¤ë¥¼ ëª»ì°¾ì•˜ì„ ë•Œ ì‘ë™
+		return 0;                      //?‚¤ë¥? ëª»ì°¾?•˜?„ ?•Œ ?‘?™
 	}
     else{
-        if(ptr->left == NULL && ptr->right == NULL){  //ë¦¬í”„ë…¸ë“œì¼ ê²½ìš°
+        if(ptr->left == NULL && ptr->right == NULL){  //ë¦¬í”„?…¸?“œ?¼ ê²½ìš°
 		    if(parent){
 				if(parent->left == ptr)
-				    parent->left = NULL;          //ìì‹ë…¸ë“œ ê°€ë¦¬í‚¤ëŠ” í¬ì¸í„°ë¥¼ NULLê°’ìœ¼ë¡œ ë³€ê²½
+				    parent->left = NULL;          //??‹?…¸?“œ ê°?ë¦¬í‚¤?Š” ?¬?¸?„°ë¥? NULLê°’ìœ¼ë¡? ë³?ê²?
 			    else
 				    parent->right = NULL; 
 			}
-			else   //parentê°€ nullì´ë¼ëŠ” ê±´ ptrì´ ë£¨íŠ¸ì´ë‹¤.
+			else   //parentê°? null?´?¼?Š” ê±? ptr?´ ë£¨íŠ¸?´?‹¤.
 				head->left = NULL;	
 		}
-	    else if(ptr->left == NULL || ptr->right == NULL){  //ìì‹ë…¸ë“œë¥¼ í•˜ë‚˜ë§Œ ê°€ì§„ ë…¸ë“œì¼ ê²½ìš°
+	    else if(ptr->left == NULL || ptr->right == NULL){  //??‹?…¸?“œë¥? ?•˜?‚˜ë§? ê°?ì§? ?…¸?“œ?¼ ê²½ìš°
 		    child = (ptr->left != NULL)? ptr->left : ptr->right;
 		    if(parent){
 				if(parent->left == ptr)
@@ -264,19 +264,19 @@ int deleteNode(Node* head, int key)
 			else
 				head->left = NULL;
 		}
-		else{            //ë‘ ê°œì˜ ìì‹ ë…¸ë“œë¥¼ ê°€ì§€ëŠ” ê²½ìš°
-		    Node* subparent = ptr; Node* subptr = ptr->right;  //ì‚­ì œí•  ë…¸ë“œì˜ ì˜¤ë¥¸ìª½ ìì‹ë“¤ ì¤‘ ê°€ì¥ ì‘ì€ í‚¤ë¥¼ ì°¾ëŠ”ë‹¤.
+		else{            //?‘ ê°œì˜ ??‹ ?…¸?“œë¥? ê°?ì§??Š” ê²½ìš°
+		    Node* subparent = ptr; Node* subptr = ptr->right;  //?‚­? œ?•  ?…¸?“œ?˜ ?˜¤ë¥¸ìª½ ??‹?“¤ ì¤? ê°??¥ ?‘??? ?‚¤ë¥? ì°¾ëŠ”?‹¤.
 			while(subptr->left != NULL){
 				subparent = subptr;
-				subptr = subptr->left;      //ì˜¤ë¥¸ìª½ íŠ¸ë¦¬ì˜ ë§¨ ì™¼ìª½ìœ¼ë¡œ ê°„ë‹¤.
+				subptr = subptr->left;      //?˜¤ë¥¸ìª½ ?Š¸ë¦¬ì˜ ë§? ?™¼ìª½ìœ¼ë¡? ê°„ë‹¤.
 			}
-			if(subparent->left == subptr)        //ì™¼ìª½ìœ¼ë¡œ íŠ¸ë¦¬ê°€ í¸í–¥ë˜ì—ˆëŠ” ì§€ ì²´í¬
+			if(subparent->left == subptr)        //?™¼ìª½ìœ¼ë¡? ?Š¸ë¦¬ê?? ?¸?–¥?˜?—ˆ?Š” ì§? ì²´í¬
 				subparent->left = subptr->right;
 			else
 			    subparent->right = subptr->right;
 			
 			ptr->key = subptr->key;
-			ptr = subptr;            //ì§€ìš´ ìë¦¬ì— ê°€ì¥ ì‘ì€ ê°’ì„ ì˜®ê¹€.
+			ptr = subptr;            //ì§??š´ ?ë¦¬ì— ê°??¥ ?‘??? ê°’ì„ ?˜®ê¹?.
 		}
 		free(ptr);  
 	}		
