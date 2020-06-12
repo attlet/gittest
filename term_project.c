@@ -116,6 +116,7 @@ int main() {
 			printGraph(&graph);
 			break;
 		case 'q': case 'Q':
+		    destroyGraph(&graph);
 			break;
 		default:
 			printf("\n       >>>>>   Concentration!!   <<<<<     \n");
