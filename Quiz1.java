@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 
 
-public class hello2030 {
+public class Quiz1{
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		
